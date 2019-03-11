@@ -210,6 +210,16 @@ namespace Reproductor
                 fades.BeginFadeOut(milisegundosFadeOut);
             }
         }
+
+        private void sldDelayOffset_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 
 }

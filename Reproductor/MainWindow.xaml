@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor"
         mc:Ignorable="d"
-        Title="Reproductor" Height="286.87" Width="800">
+        Title="Reproductor" Height="352.385" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -28,6 +28,14 @@
         <Button x:Name="btnFadeOut" Content="Iniciar FadeOut" HorizontalAlignment="Left" Margin="324,218,0,0" VerticalAlignment="Top" Width="109" Height="23" Click="btnFadeOut_Click"/>
         <TextBox x:Name="txtDuracionFadeOut" HorizontalAlignment="Left" Height="23" Margin="187,218,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="187,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Duraci"/><Run Text="ó"/><Run Text="n Fade Out"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="24,260,0,0" TextWrapping="Wrap" Text="Delay" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbDelayActivate" Content="Activo" HorizontalAlignment="Left" Margin="24,276,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="110,257,0,0" TextWrapping="Wrap" Text="Offset" VerticalAlignment="Top"/>
+        <Slider x:Name="sldDelayOffset" HorizontalAlignment="Left" Margin="110,275,0,0" VerticalAlignment="Top" Width="164" ValueChanged="sldDelayOffset_ValueChanged"/>
+        <TextBlock x:Name="lblDelayOffset" HorizontalAlignment="Left" Margin="249,298,0,0" TextWrapping="Wrap" Text="0 ms" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="288,257,0,0" TextWrapping="Wrap" Text="Ganancia:" VerticalAlignment="Top"/>
+        <Slider HorizontalAlignment="Left" Margin="288,275,0,0" VerticalAlignment="Top" Width="153" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="435,298,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -13,6 +13,7 @@ namespace Reproductor
         public int OffsetMilisegundos { get; set; }
         private int cantidadMuestrasOffset;
 
+
         private List<float> bufferDelay = new List<float>();
         private int tamañoBuffer;
         private int duracionBufferSegundos;
@@ -35,6 +36,8 @@ namespace Reproductor
             cantidadMuestrasOffset = (int) (((float)OffsetMilisegundos / 10000.0f) * (float)fuente.WaveFormat.SampleRate);
             duracionBufferSegundos = 10;
             tamañoBuffer = fuente.WaveFormat.SampleRate * duracionBufferSegundos;
+
+
         }
 
         public int Read(float[] buffer, int offset, int count)
