@@ -7,8 +7,10 @@ using NAudio.Wave;
 
 namespace Reproductor
 {
+
     class Delay : ISampleProvider
     {
+        public bool  Activo { get; set; }
         private ISampleProvider fuente;
         public int OffsetMilisegundos { get; set; }
         private int cantidadMuestrasOffset;
@@ -62,6 +64,10 @@ namespace Reproductor
 
             }
             //Aplicar el efecto
+            if (Activo)
+            {
+
+            
             if(milisegundosTranscurridos > OffsetMilisegundos)
             {
                 for (int i = 0; i< read; i++)
@@ -70,7 +76,7 @@ namespace Reproductor
                         + i - cantidadMuestrasOffset];
                 }
             }
-
+            }
             cantidadMuestrasTranscurridas += read;
             return read;
         }
