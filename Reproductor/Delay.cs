@@ -12,7 +12,13 @@ namespace Reproductor
     {
         public bool  Activo { get; set; }
         private ISampleProvider fuente;
-        public int OffsetMilisegundos { get; set; }
+        private int offsetMilisegundos;
+        public int OffsetMilisegundos {
+            get { return offsetMilisegundos; }
+            set { offsetMilisegundos = value;
+                cantidadMuestrasOffset = (int)(((float)OffsetMilisegundos / 10000.0f) * (float)fuente.WaveFormat.SampleRate);
+            }
+        }
         private int cantidadMuestrasOffset;
 
 
@@ -21,6 +27,8 @@ namespace Reproductor
         private int duracionBufferSegundos;
         private int cantidadMuestrasTranscurridas = 0;
         private int cantidadMuestrasBorradas = 0;
+
+
 
 
         public WaveFormat WaveFormat
@@ -33,9 +41,9 @@ namespace Reproductor
 
         public Delay(ISampleProvider fuente)
         {
+            Activo = false;
             this.fuente = fuente;
             OffsetMilisegundos = 500;
-            cantidadMuestrasOffset = (int) (((float)OffsetMilisegundos / 10000.0f) * (float)fuente.WaveFormat.SampleRate);
             duracionBufferSegundos = 10;
             tamañoBuffer = fuente.WaveFormat.SampleRate * duracionBufferSegundos;
 

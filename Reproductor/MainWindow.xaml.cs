@@ -104,6 +104,8 @@ namespace Reproductor
             {
                 reader = new AudioFileReader(txtRutaArchivo.Text);
                 delay = new Delay(reader);
+                delay.Activo = (bool)cbDelayActivate.IsChecked;
+                delay.OffsetMilisegundos = (int)sldDelayOffset.Value;
                 fades = new FadeInOutSampleProvider(delay, true);
                 double milisegundosFadeIn = Double.Parse(txtDuracionFadeIn.Text) * 1000.0;
                 fades.BeginFadeIn(milisegundosFadeIn);
@@ -211,15 +213,26 @@ namespace Reproductor
             }
         }
 
+        private void CbDelayActivate_Click(object sender, RoutedEventArgs e)
+        {
+            if(delay != null)
+            {
+                delay.Activo = (bool)cbDelayActivate.IsChecked;
+            }
+        }
+
         private void sldDelayOffset_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-          
-        }
+            if (delay != null)
+            {
+                delay.OffsetMilisegundos = (int)sldDelayOffset.Value;
+            }
+            if (lblDelayOffset != null)
+            {
+                lblDelayOffset.Text = sldDelayOffset.Value.ToString() + "ms";
+            }
+            }
 
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
     }
 
 }
